@@ -1,22 +1,41 @@
 ---
+import Navigation from '../components/navigation.astro'
+const pageTitle = "About Me";
+
+const identity = {
+    firstName: "Mohammad",
+    occupation: "Software Developer",
+    country: "Canada",
+    hobbies: ["learning new technologies", "movies", "cricket"]
+}
+
+const skills = ["Javascript", "React", "C#", "Azure"]
 ---
-
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<ul>
-			<li><a href="/">Home</a></li>
-			<li><a href="/about">About</a></li>
-			<li><a href="/blog">Blog</a></li>
-		</ul>
-		<h1>About</h1>
+  <head>
+    <meta charset ="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <Navigation />
+    
+    <h1>{pageTitle}</h1>
+    
+    <p>Here are a few facts about me</p>
 
-        <p>This is a blog built using Astro</p>
-	</body>
+    <ul>
+        <li>My name is {identity.firstName}</li>
+        <li>I live in {identity.country} and I work as a {identity.occupation}</li>
+        {identity.hobbies.length >= 2 &&
+        <li>Two of my hobbies are {identity.hobbies[0]} and {identity.hobbies[1]}</li>
+        }
+    </ul>
+
+    <p>My skills are</p>
+    <ul>
+        {skills.map(s => <li>{s}</li>)}
+    </ul>
+
+  </body>
 </html>
