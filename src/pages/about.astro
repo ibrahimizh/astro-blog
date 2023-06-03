@@ -1,5 +1,6 @@
 ---
 import Navigation from '../components/navigation.astro'
+import Footer from '../components/footer.astro'
 const pageTitle = "About Me";
 
 const identity = {
@@ -37,5 +38,6 @@ const skills = ["Javascript", "React", "C#", "Azure"]
         {skills.map(s => <li>{s}</li>)}
     </ul>
 
+    <Footer />
   </body>
 </html>
